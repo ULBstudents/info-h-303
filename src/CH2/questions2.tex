@@ -14,13 +14,64 @@
 	\item SDL
 	\item VDL
 	\item query language
-	\item Host language
-	\item Data sublanguages
 	\item Database utility
-	\item Catalog
-	\item Client-Server architecture
 \end{itemize}
 
+
+\noindent
+Rep (prop) :\\ 
+\textbf{Data Model} : Collection de concepts qui peuvent être 
+utilisés pour décrire la structure d'une base de données. Ils peuvent avoir 
+des niveaux d'abstraction différents : haut niveau ou conceptuel ressemblent 
+plus à ce que l'on propose aux utilisateurs habituels, 
+bas niveau ou data model physique sont plutôt pour les spécialistes, plus complexes.
+Entre les deux, il y a "representational" (ou implementation data model), qui 
+cache un certain nombre de détails mais qui peut être implémenté directement dans
+un système informatique.\\
+note : heu ??? \\
+\textbf{Database Schema} : 
+Un schéma décrit l'organisation/structure d'une db. On distingue les données 
+de leur structure. Cette structure est spécifiée par le design de la db.\\
+\textbf{Database state} : L'état - aussi appelé snapshot, est la situation 
+des données à un instant t. \\
+\textbf{Internal schema} : 
+Dans une architecture "three-schema architecture" (3 schémas, donc), 
+le niveau "interne" décrit le stockage interne de la db : accès physique aux données, chemins d'accès, ... \\
+\textbf{Conceptual schema}
+Décrit la structure pour toute la communauté d'utilisateurs : 
+cache les détails d'accès physiques aux données, et décrit les entités, 
+les types de données, les relations, les opérations permises et les contraintes.
+Un high-level model peut être utilisé à ce niveau.\\
+\textbf{External schema} :
+(vue) inclus des schémas externes ou des vues d'utilisateurs. Chaque schéma externe décrit une part de la db auquel un groupe/utilisateur est intéressé et cache le reste de la db.\\
+\textbf{Indépendance des données}
+L'architecture 3-schémas (décrite au dessus) peut être utilisée pour expliquer l'indépendance des données. On peut citer deux différentes sortes d'indépendance :
+\begin{itemize}
+	\item L'indépendance logique des données : La capacité de changer le schéma conceptuel sans devoir changer le schéma externe.
+	\item L'indépendance physique des données : la capacité à changer le schéma interne sans devoir changer le modèle conceptuel (externe). 
+\end{itemize}
+\\
+\textbf{DDL} :
+Data Definition Language, utilisé par le DBA pour définir le schéma.
+Dans les SGBD avec une séparation entre le niveau conceptuel et les données, 
+DLL est utilisé pour le schéma uniquement. \\
+\textbf{DML} : 
+La manipulation de la base de données directement se fait à l'aide du 
+Data Manipulation Language.\\
+\textbf{SDL} : Storage Definition Language, utilisé pour le schéma interne, lorsque la séparation conceptuel/data est moins nette.\\
+\textbf{VDL} : View Definition Language. ?? \\
+\textbf{query language} : Un langage de requête est utilisé pour accéder aux données stockées dans la db. \\
+\textbf{Database utility} : 
+Beaucoup de SGBD proposent des utilitaires avec ce type de fonctions :
+\begin{itemize}
+	\item Loading : charge des fichiers existants dans la db. On précise le 
+	format de départ du fichier et le format désiré. L'utilitaire 
+	va automatiquement convertir. 
+	 \item Backup : Créé une copie de la db, par "dumping". Utilisé dans des 
+	 cas extrêmes. La plupart du temps, on procède à des backup incrementiels : gain de place.
+	 \item réorganisation de fichiers : Afin d'améliorer la performance, on peut souhaiter réorganiser.
+	 \item Performance monitoring : Propose des statistiques.
+\end{itemize}
 
 \subsection{Discuss the main categories of data models}
 

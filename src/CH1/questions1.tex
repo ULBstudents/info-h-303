@@ -7,25 +7,132 @@
 	\item Base de données (database)
 	\item SGBD (DBMS)
 	\item Système de bases de données (database system)
-	\item database catalog
-	\item program-data independance
-	\item user view
+	\item Database catalog
+	\item Program-data independance
+	\item User View
 	\item Administrateur de base de données (DBA)
 	\item Utilisateur final (end user)
-	\item canned transaction
-	\item deductive database system
-	\item persistent object
+	\item Canned Transaction
+	\item Persistent object
 	\item meta-data
 	\item transaction processing application
 \end{itemize}
 
+\noindent
+Rep (prop) :\\ 
+\textbf{Database} : une collection de données connexes; 
+Une DB ne représente qu'une partie du monde réel. On peut parler de 
+"miniworld" ou "Universe of Discourse" (UoD). \\
+\textbf{Data} : des faits connus qui peuvent être enregistrés et ont une signification 
+implicite.\\
+\textbf{SGBD} : Collection de programmes qui permettent de créer et de maintenir 
+une base de données. 
+Définir une base de données signifie d'en spécifier les types de données, 
+les structures, et les contraintes pour les données qui seront stockées. 
+Construire une base de données est le processus où l'on enregistre les données 
+dans un espace de stockage contrôlé par le SGBD. Manipuler une db implique 
+certaines fonctions comme "interroger" (querying) la db pour retrouver 
+certaines données spécifiques, en mettre à jour (update) pour refléter 
+les changements du miniworld, la génération de rapports à partir des données.\\
+\textbf{Db System} : On appelle "database system" l'ensemble database et DBMS. \\
+\textbf{Database catalog} : Le catalogue d'une base de données est 
+l'ensemble des définitions des objets "bases de données", comme les 
+tables, les vues (tables virtuelles), les indexes, utilisateurs et groupes, contraintes, etc. Les informations stockées dans le catalogue sont 
+les "meta-data".\\
+\textbf{Program-data independance} Dans le traitement de fichiers traditionnel, 
+la structure des data files est intégrée dans le programme d'accès. 
+Donc un changement dans la structure nécessite de changer tous les programmes
+qui accèdent à ces fichiers. 
+Au contraire, avec un SGBD, les programmes d'accès ne nécessitent pas de changement, 
+la plupart du temps. C'est ce qu'on appelle "Program-data independance". \\
+\textbf{User View} Typiquement, une DB possède plusieurs utilisateurs, et chacun d'eux 
+peut avoir besoin de "vues/perspectives" différentes.  
+Une vue peut être un sous-ensemble de la db, ou contenir des 
+données virtuelles, dérivées de la db stockée, mais pas directement 
+stockées elles-mêmes. \\
+\textbf{Administrateur de base de données} : Dans un environnement de DB, 
+la ressource primaire est la base de données elles-même, et la seconde 
+ressource est le SGBD, (et les softwares relatifs). 
+L'administration de ces ressources est la responsabilité de 
+l'administrateur BD : DBA. 
+Il donne accès à la db, pour coordonner et gérer l'usage, acquérir des programmes 
+et ressources au besoin. \\
+\textbf{End User} : Les personnes dont le job nécessite un accès à la db, 
+pour interroger, mettre à jour, générer des rapports. C'est en général 
+pour eux que la db existe. Il y a plusieurs types de end-users :
+\begin{itemize}
+	\item Casual end user (décontracté): Il accède peu souvent, mais il a besoin de certaines infos à chaque fois.
+	\item Naive : Il met à jour souvent la db, au travers de "canned transactions" 
+	(requêtes sans danger, qui ont été vérifiées et ne risquent pas de causer de pb)
+	\item Sophistiqué : ingénieurs, scientifiques, etc. qui implémentent leurs solutions 
+	et ont des besoins plus complexes
+	\item Stand-alone (pas trop compris)
+\end{itemize}
+\textbf{canned transaction}: transaction en "conserve", standard, qui a été vérifiée, qui peut mettre à jour des données sans que l'on craigne pour l'intégrité de la base, toujours le même type de transaction.\\
+\textbf{Persistent object} : Comme en POO, c'est un objet qui persiste 
+même après fermeture du programme. \\
+\textbf{meta-data} : ce qui est contenu dans le catalogue;\\
+\textbf{transaction processing application} :
+\textit{En informatique, et particulièrement dans les bases de données, 
+une transaction telle qu'une réservation, un achat ou un paiement est mise en 
+œuvre via une suite d'opérations qui font passer la base de données d'un état A 
+ — antérieur à la transaction — à un état B postérieur et des mécanismes  permettent d'obtenir que cette suite soit à la fois atomique, cohérente, isolée et durable.} (wikipedia)
+
 \subsection{Citer trois types différents d'actions qu'impliquent les bases de données ? Discuter chacune d'elles}
+
+
 
 
 \subsection{Discuter les principales caractéristiques de l'approche "Bases de données" et des différences par rapport à une gestion de fichier traditionnelle}
 
+Dans la gestion de fichiers traditionnelle, chaque utilisateur définit 
+ses propres fichiers et leur structure. Ainsi, cela peut être très difficile 
+de centraliser les données. Par exemple, si chaque professeur stocke lui-même 
+les notes des élèves, et que l'on souhaite comparer les notes de deux classes, 
+on va avoir du mal à récupérer l'ensemble des notes de deux professeurs différents, 
+car les fichiers seront structurés de façon différente.
+Dans l'approche DB au contraire, la structure est définie une seule fois, et on 
+évite la redondance. L'accès y est géré par utilisateur.
+
+\paragraph{Description}Par rapport à un système de fichier, la DB contient une description 
+de la structure et des contraintes. (catalogue). Dans un système de fichier, la 
+définition des données fait partie de l'application elle-même. 
+
+\paragraph{Indépendance}L'indépendance des données est également une différence : Dans un système de fichier, 
+un changement de structure devra être répercuté sur chaque application.
+En SGBD, la majeure partie du temps, cela ne provoquera aucun changement 
+dans les applications, puisque le catalogue est stocké avec la DB.
+
+\paragraph{Multiples utilisateurs et vues} Une DB peut fournir plusieurs 
+types d'accès aux données, voire à des données "virtuelles". 
+
+\paragraph{Accès et modifications multiples} Une grande différence par rapport 
+au système de fichier traditionnel est que la DB permet un accès 
+multiple et simultané. Un SGBD doit avoir un système de contôle de concurrence 
+(concurrency control) afin d'assurer l'intégrité des données. 
+Par exemple, plusieurs réservations en même temps : on doit s'assurer que 
+deux utilisateurs n'achètent pas la même place au même moment, qu'une 
+seule place est vendue. (online trasaction processing).
+
+
 \subsection{Quelles sont les responsabilités du DBA et du Database Designer ?}
+Le DBA donne accès à la db, pour coordonner et gérer l'usage, acquérir des programmes et ressources au besoin. Les DB Designers sont responsables du 
+choix des structures pour stocker les données. Il doit comprendre les 
+besoins afin de fournir la structure adaptée. La plupart du temps, 
+le designer est dans l'équipe du DBA. 
+Il devra communiquer avec tous les types d'utilisateurs/groupes et 
+fournir des vues adaptées. 
+
 
 \subsection{Quels sont les différents types d'utilisateurs finaux de bases de données (end users)?}
+\begin{itemize}
+	\item Casual end user (décontracté): Il accède peu souvent, mais il a besoin de certaines infos à chaque fois.
+	\item Naive : Il met à jour souvent la db, au travers de "canned transactions" 
+	(requêtes sans danger, qui ont été vérifiées et ne risquent pas de causer de pb)
+	\item Sophistiqué : ingénieurs, scientifiques, etc. qui implémentent leurs solutions 
+	et ont des besoins plus complexes
+	\item Stand-alone (pas trop compris)
+\end{itemize}
+
 
 \subsection{Discuter des différentes "fonctionnalités" qui devraient être fournies par un SGBD}

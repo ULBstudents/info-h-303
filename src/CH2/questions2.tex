@@ -82,6 +82,13 @@ Beaucoup de SGBD proposent des utilitaires avec ce type de fonctions :
 \subsection{Describe the three-schema architecture. Why do we need mappings between schema levels ? How do different shema definition languages support this architecture ?}
 
 \subsection{What is the difference between logical data independence and physical data independence ?}
+Data independence refers to the possibility to change the schema at one level without having to change it at the next higher level (nor having to change programs that access it at that higher level). The two types are:
+\begin{itemize}
+	\item \textbf{Logical data independence:} An external schema (and programs that access it) is insulated from changes that do not concern it in in the community schema (and in the physical schema)
+	\item \textbf{Physical data independence:} the community and external schemas are insulated from changes in the physical schema
+\end{itemize}
+Logical data independence therefore refers to the fact that data will only be modified if it is logical to do so, if changes do not concern it, it is left untouched.
+On the other hand physical data independence therefore refers to the fact that logical schemas of the data are unaffected by what the data actually is. If a person changes their name it will only affect the physical data of his name, it will not change the fact that he HAS a name.
 
 \subsection{What is the difference between procedural and non-procedural DMLs?}
 

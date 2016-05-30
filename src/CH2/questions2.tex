@@ -76,10 +76,15 @@ Beaucoup de SGBD proposent des utilitaires avec ce type de fonctions :
 \subsection{Discuss the main categories of data models}
 
 
+\subsection{Quelle est la différence entre un schéma de base de données t  un état de la base de données ?}
+Un schéma représente la structure de la base, il ne concerne pas les données 
+en elle-mêmes mais donne des indications sur les contraintes, le type de données etc.
+L'état représente l'état des données à un moment m, on 
+peut également parler de snapshot.Il s'agit là des données en elles-mêmes.
 
-\subsection{What is the difference between a database schema and a database state ?}
 
 \subsection{Describe the three-schema architecture. Why do we need mappings between schema levels ? How do different shema definition languages support this architecture ?}
+
 
 \subsection{What is the difference between logical data independence and physical data independence ?}
 Data independence refers to the possibility to change the schema at one level without having to change it at the next higher level (nor having to change programs that access it at that higher level). The two types are:
@@ -96,4 +101,14 @@ On the other hand physical data independence therefore refers to the fact that l
 
 \subsection{With what other computer system software does a DBMS interact ?}
 
-\subsection{Discuss some types of database utilities and tools and their fonctions}
+\subsection{Discuter des types d'utilitaires et outils de db et leurs fonctions}
+Beaucoup de SGBD proposent des utilitaires avec ce type de fonctions :
+\begin{itemize}
+	\item Loading : charge des fichiers existants dans la db. On précise le 
+	format de départ du fichier et le format désiré. L'utilitaire 
+	va automatiquement convertir. 
+	\item Backup : Créé une copie de la db, par "dumping". Utilisé dans des 
+	cas extrêmes. La plupart du temps, on procède à des backup incrementiels : gain de place.
+	\item réorganisation de fichiers : Afin d'améliorer la performance, on peut souhaiter réorganiser.
+	\item Performance monitoring : Propose des statistiques.
+\end{itemize}

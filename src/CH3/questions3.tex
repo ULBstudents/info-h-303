@@ -2,7 +2,12 @@
 
 \subsection{Discuss the role of a high-level data model in the database design process}
 
-\subsection{List the various cases where use of null value would be appropriate}
+\subsection{Lister les différents cas où l'usage d'une valeur null peut être appropriée}
+\begin{itemize}
+\item L'attribut est optionnel (exemple : on possède ou pas un téléphone, ce n'est pas obligatoire)
+\item L'attribut permet une généralisation (attribut "type")
+\item ? 
+\end{itemize}
 
 \subsection{Define the following terms :}
 
@@ -11,7 +16,7 @@
 	\item attribut
 	\item valeur d'attribut
 	\item instance de relation
-	\item attribut composite 
+	\item attribut composé 
 	\item attribut multivalué
 	\item attribut dérivé
 	\item attribut complexe
@@ -27,13 +32,15 @@ Un objet important, un concept dans le monde réel (ma voiture rouge...) qui peu
 Une entité est souvent le terme utilisé pour décrire une instance, mais aussi pour \textit{entity type, entity set, entity class}.
 En pratique, dans ce cours, "entité" est similaire à ce qu'on entend par "objet".
 
-\textbf{attribut :} \\
+\textbf{attribut :} Une entité ou une relation a des valeurs pour chaque attribut.
+Celles-ci appartiennent à un set de valeurs, ou à un domaine.\\
 
-\textbf{valeur d'attribut :} \\
+\textbf{valeur d'attribut :} appartient à un set de valeurs (0 ou 1, par exemple), ou à un domaine\\
 
-\textbf{instance de relation :}\\
+\textbf{instance de relation :} \\
 
-\textbf{attribut composite :} \\
+\textbf{attribut composé :} Un attribut peut être composé de plusieurs champs, exemple : une adresse (city, nro, etc.) Conceptuellement, il s'agit du même attribut. On peut le spécifier dans la table en conservant le même préfixe (addr\_nro, addr\_city etc.)
+\\
 
 \textbf{attribut multivalué :} un attribut qui peut avoir plusieurs instances. 
 Exemple : un élève qui suit 0..n cours, qui possède 0..n numéros de téléphone...\\
@@ -41,7 +48,8 @@ Exemple : un élève qui suit 0..n cours, qui possède 0..n numéros de téléph
 \textbf{attribut dérivé :} se déduit d'autres attributs. ex. nombre d'élèves dans une classe, âge d'une personne, statut majeur ou mineur...\\
 \textbf{attribut complexe :} \\
 \textbf{key attribute :} \\
-\textbf{value set (domain) :} détermine des contraintes sur les données. Exemple : un numéro de téléphone fixe belge est composé de 9 chiffres\\
+\textbf{value set (domain) :} détermine l'ensemble des valeurs possibles. 
+Exemple : un numéro de téléphone fixe belge est composé de 9 chiffres\\
 
 \subsection{Expliquer la différence entre un attribut et un set de valeurs}
 
@@ -57,6 +65,9 @@ Un type de relation est conceptuel. Une instance est une entrée de cette relati
 %\subsection{When we think of relationships as attribute, what are the value sets of these attributes ? What class of data models is based on this concept ?}
 
 \subsection{Quelle est la signification d'une relation récursive ? Donner des exemples}
+C'est une relation qui porte sur le même type d'entité une fois ou plus.
+Exemple : la supervision des employés. \\
+Un employé peut superviser un employé, qui peut superviser un employé... (attention à la gestion des cycles)\\
 
 \subsection{When is the concept of a weak entity used in data modeling ? Define the terms} :
 \begin{itemize}

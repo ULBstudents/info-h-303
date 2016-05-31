@@ -45,6 +45,21 @@ Donc un changement dans la structure nécessite de changer tous les programmes
 qui accèdent à ces fichiers. 
 Au contraire, avec un SGBD, les programmes d'accès ne nécessitent pas de changement, 
 la plupart du temps. C'est ce qu'on appelle "Program-data independance". \\
+Cela permet de changer le schéma à un niveau, sans avoir à changer au niveau supérieur. 
+\begin{itemize}
+\item[indépendance logique des données] : Un schéma externe est isolé des changements 
+qui ne concernent pas le community schema.
+\item[indépendance physique des données] : Les schémas sont isolés des changements de données
+\end{itemize}
+
+Illustration 
+\begin{itemize}
+\item un lien entre deux enregistrements peut être conceptuel ou logique (pointeur)
+\item l'ajout d'un index à une table ne modifie pas la programmation. La 
+seule modification est l'efficacité.
+\item Ajout de nouveaux champs : seuls les programmes désirant y accéder devront être modifiés
+\end{itemize}
+
 \textbf{User View} Typiquement, une DB possède plusieurs utilisateurs, et chacun d'eux 
 peut avoir besoin de "vues/perspectives" différentes.  
 Une vue peut être un sous-ensemble de la db, ou contenir des 
@@ -70,7 +85,8 @@ pour eux que la db existe. Il y a plusieurs types de end-users :
 \end{itemize}
 \textbf{canned transaction}: transaction en "conserve", standard, qui a été vérifiée, qui peut mettre à jour des données sans que l'on craigne pour l'intégrité de la base, toujours le même type de transaction.\\
 \textbf{Persistent object} : Comme en POO, c'est un objet qui persiste 
-même après fermeture du programme. \\
+même après fermeture du programme. Opposé à transient, qui est "transitoire", n'existe plus à la fin de 
+l'exécution.\\
 \textbf{meta-data} : ce qui est contenu dans le catalogue;\\
 \textbf{transaction processing application} :
 \textit{En informatique, et particulièrement dans les bases de données, 
@@ -79,8 +95,12 @@ une transaction telle qu'une réservation, un achat ou un paiement est mise en
  — antérieur à la transaction — à un état B postérieur et des mécanismes  permettent d'obtenir que cette suite soit à la fois atomique, cohérente, isolée et durable.} (wikipedia)
 
 \subsection{Citer trois types différents d'actions qu'impliquent les bases de données ? Discuter chacune d'elles}
-
-
+\begin{itemize}
+	\item Interroger (querying)
+	\item Modifier, la structure ou les données
+	\item Analyser (report)
+\end{itemize} 
+... to be continued
 
 
 \subsection{Discuter les principales caractéristiques de l'approche "Bases de données" et des différences par rapport à une gestion de fichier traditionnelle}

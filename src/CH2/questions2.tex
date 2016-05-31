@@ -54,10 +54,25 @@ L'architecture 3-schémas (décrite au dessus) peut être utilisée pour expliqu
 \textbf{DDL} :
 Data Definition Language, utilisé par le DBA pour définir le schéma.
 Dans les SGBD avec une séparation entre le niveau conceptuel et les données, 
-DLL est utilisé pour le schéma uniquement. \\
+DLL est utilisé pour le schéma, et spécifier les contraintes.\\
 \textbf{DML} : 
 La manipulation de la base de données directement se fait à l'aide du 
-Data Manipulation Language.\\
+Data Manipulation Language (retrouver, modifier, insérer, supprimer une information) avec 
+un langage de requête ou de programmation.
+user-friendly interfaces (graphiques, menus, formulaires, langage naturel, ...)\\
+Il y a plusieurs niveaux. Pour le haut niveau : 
+\begin{itemize}
+\item Précise plus CE qui doit être cherché que COMMENT
+\item utilise avec propre langage ou intègre un langage hôte (COBOL, C, PASCAL)
+\item aussi appelé "déclaratif"
+\end{itemize}
+Plus bas niveau :
+\begin{itemize}
+\item Retrouve chaque enregistrement séparément et les traite individuellement (??)
+\item appelé aussi "procédural"
+contenu...
+\end{itemize}
+
 \textbf{SDL} : Storage Definition Language, utilisé pour le schéma interne, lorsque la séparation conceptuel/data est moins nette.\\
 \textbf{VDL} : View Definition Language. ?? \\
 \textbf{query language} : Un langage de requête est utilisé pour accéder aux données stockées dans la db. \\

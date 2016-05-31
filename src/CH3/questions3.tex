@@ -7,33 +7,56 @@
 \subsection{Define the following terms :}
 
 \begin{itemize}
-	\item entity
-	\item attribute
-	\item attribute value
-	\item relashionship instance
-	\item composite attribue
-	\item multivalued attribute
-	\item derived attribute
-	\item complex attribute
+	\item entité
+	\item attribut
+	\item valeur d'attribut
+	\item instance de relation
+	\item attribut composite 
+	\item attribut multivalué
+	\item attribut dérivé
+	\item attribut complexe
 	\item key attribute
 	\item value set (domain)
 \end{itemize}
 
-\subsection{What is an entity type ? Entity set ? Explain the differences among an entity an entity type, an and an entity set}
+\noindent
+Rep (prop) :\\ 
 
-\subsection{Explain the difference between an attribue and a value set}
+\textbf{Entité :} 
+Un objet important, un concept dans le monde réel (ma voiture rouge...) qui peut être conceptuel (travail), ou physique (voiture, ..) \\
+Une entité est souvent le terme utilisé pour décrire une instance, mais aussi pour \textit{entity type, entity set, entity class}.
+En pratique, dans ce cours, "entité" est similaire à ce qu'on entend par "objet".
 
-\subsection{What is a relationship type ? Explain the difference among a relationship instance, a relationship type, and a relationship set}
+\textbf{attribut :} \\
+
+\textbf{valeur d'attribut :} \\
+
+\textbf{instance de relation :}\\
+
+\textbf{attribut composite :} \\
+
+\textbf{attribut multivalué :} un attribut qui peut avoir plusieurs instances. 
+Exemple : un élève qui suit 0..n cours, qui possède 0..n numéros de téléphone...\\
+
+\textbf{attribut dérivé :} se déduit d'autres attributs. ex. nombre d'élèves dans une classe, âge d'une personne, statut majeur ou mineur...\\
+\textbf{attribut complexe :} \\
+\textbf{key attribute :} \\
+\textbf{value set (domain) :} détermine des contraintes sur les données. Exemple : un numéro de téléphone fixe belge est composé de 9 chiffres\\
+
+\subsection{Expliquer la différence entre un attribut et un set de valeurs}
+
+\subsection{Qu'est-ce qu'un type de relation ? Expliquer la différence entre une instance de relation, un type de relation}
+Un type de relation est conceptuel. Une instance est une entrée de cette relation dans une table.
 
 \subsection{What is a participation role ? When is it necessary to use role names in the description oh a relationship types ?}
 
-\subsection{Describe the two alternatives for specifying structural constraints on the relationship types. What are the advantages and disadvantages of each ?}
+\subsection{Décrire deux alternatives pour spécifier les contraintes structurelles d'un type de relation. Quels sont les avantages et désavantages des deux ?}
 
 \subsection{Under what conditions can an attribute of a binary relationship type be migrated to become an attribute of one of the participating entity types ?}
 
-\subsection{When we think of relationships as attribute, what are the value sets of these attributes ? What class of data models is based on this concept ?}
+%\subsection{When we think of relationships as attribute, what are the value sets of these attributes ? What class of data models is based on this concept ?}
 
-\subsection{What is the meant by a recursive relationship type ? Give some examples of recursive relationships types}
+\subsection{Quelle est la signification d'une relation récursive ? Donner des exemples}
 
 \subsection{When is the concept of a weak entity used in data modeling ? Define the terms} :
 \begin{itemize}
@@ -43,9 +66,10 @@
 	\item partial key
 \end{itemize}
 
-\subsection{Can an indentifying relationship of a weak entity type be of a degree greater than two ? Give examples to illustrate your anser}
-
-\subsection{Discuss the conventions for displaying an ER schema as an ER diagram}
-
-\subsection{Discuss the naming conventions used for ER schema diagrams}
+\subsection{Est-ce qu'une faible entité peut être de degré supérieur à 2 ? Donner des exemples}
+prop :
+Oui. On peut imaginer une table dont les entrées représentent l'ajout d'un certain label (dont le texte est stocké sur une autre table) 
+concernant un certain établissement (dont l'id est répertorié dans une autre table) apposé par un certain membre 
+(dont l'id est stocké ailleurs). Dans ce cas, 
+trois clés étrangères sont utilisées, et l'entité reste faible.
 

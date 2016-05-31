@@ -1,0 +1,124 @@
+\section{janvier 2008}
+
+\subsection{question 1}
+	Une manière de supprimer la généralisation dans un modèle  entité-association (EA) est de 	conserver la super-entité, d'y ajouter les attributs et les relations des sous-entités, d'y ajouter un attribut 'type' et ajouter toutes les contraintes nécessaires.	Donner deux autres manières de supprimer la généralisation dans un modèle EA. Spécifier et justifier pour chaque type de généralisation si chacun des deux cas peut ou non s'appliquer.
+
+
+\subsection{question 2}
+	Donner et expliquer les trois manières vues au cours de gérer la suppression en conservant l'intégrité référentielle dans le modèle relationnel. Illustrer à l'aide d'exemples bien choisis chacun des cas.
+
+\subsection{question 3}
+	Définir l'opération de division de l'algèbre relationnelle. Donner un équivalent en calcul relationnel tuple.
+\subsection{question 4}
+Donner un exemple bien choisi d’utilisation de la jointure externe (outer join).
+
+\subsection{question 5}
+Définir troisième forme normale et forme normale de Boyce-Codd.
+Donner un exemple de relation qui est:
+\begin{itemize}
+	\item en deuxième mais pas en troisième forme normale,
+	\item en troisième mais pas en forme normale de Boyce-Codd.
+\end{itemize}
+Donner les anomalies de mise à jour pour chacun des deux exemples.
+
+
+\section{Janvier 2009}
+
+\subsection{question 1}
+A l’aide d’un exemple, expliquer comment remplacer une association ternaire par un modèle
+équivalent sans relation ternaire. Donner la traduction relationnelle des 2 modélisations.
+
+\subsection{question 2}
+Expliquer la notion de contrainte d’intégrité du modèle relationnel. Citer et expliquer brièvement
+les différents types de contraintes dans le modèle relationnel : celles présentes dans le modèle
+et celles annexées à celui-ci.
+
+\subsection{question 3}
+
+Définir l’opération de produit cartésien en algèbre relationnelle. Expliquer le lien entre cette
+opération et la jointure, la jointure naturelle et la jointure externe.
+
+\subsection{question 4}
+Expliquer la séquence intuitive d’exécution (sémantique opérationnelle) d’une requête de type :
+SELECT (...) FROM (...) WHERE (...) GROUP BY (...) HAVING (...)
+
+\subsection{question 5}
+Définir la notion de dépendance multi-valuée. Définir également la quatrième forme normale.
+Expliquer le lien entre les dépendances multi-valuées et la première forme normale.
+
+
+\section{Juin 2013}
+
+\subsection{Modèle relationnel}
+Une manière de supprimer la généralisation dans un modèle entité-association (EA)
+est de conserver la super-entité, d'y ajouter les attributs et les relations 
+des sous-entités, d'y ajouter un attribut "type", et ajouter toutes les 
+contraintes nécessaires. Donner deux autres manières de supprimer la 
+généralisation dans un modèle EA. Spécifier et justifier pour chaque type de généralisation 
+si chacun des deux cas peut ou non s'appliquer. 
+
+\subsection{Calcul tuple}
+
+(a) Donner la forme générale d'une requête en calcul relationnel tuple.\\
+(b) Le quantificateur universel ($\forall$) est souvent associé à l'implication 
+($\implies$). Expliquer.
+
+\subsection{SQL}
+Donner la syntaxe et le contexte dans lequel la clause HAVING du langage SQL peut être 
+utilisée. Illustrez par un exemple.
+
+\subsection{Normalisation}
+Définissez la notion de \textit{dépendance fonctionnelle}. \\
+Définissez les trois premières formes normales et donnez trois exemples 
+illustrant ces différentes formes.
+
+\section{Juin 2015}
+
+\subsection{Modèle entité association}
+
+Donnez 3 manières de supprimer la généralisation dans un modèle entité-association.\\
+Pour chacune de ces trois manières, spécifiez si elle est adaptée ou non lorsque la 
+généralisation est du type \textit{partiel}.\\
+Quelle contrainte supplémentaire doit-on ajouter lorsque la généralisation est 
+de type \textit{exclusif} ?
+
+\subsection{Algèbre relationnelle}
+Expliquer comment se passer de l'opération de division en algèbre relationnelle.
+
+\subsection{SQL}
+Soit les relations Employee(\underline{SSN}, Name, Salary) et WorksOn(\underline{ESSN, PNO}, Hours), 
+où WorksOn.ESSN référence Employee.SSN.
+Parmi les trois requêtes suivantes, lesquelles expriment la question : 
+\textit{"Donner la moyenne des salaires des employés qui travaillent plus de 10 heures sur un projet ? "} Justifiez à l'aide d'un exemple les requêtes incorrectes.\\
+\begin{enumerate}
+\item 
+\begin{lstlisting}
+SELECT AVG(Salary) 
+FROM Employee, WorksOn
+WHERE SSN = ESSN AND Hours > 10 
+\end{lstlisting}
+\item 
+\begin{lstlisting}
+SELECT AVG(DISTINCT Salary) 
+FROM Employee, WorksOn
+WHERE SSN = ESSN AND Hours > 10 
+\end{lstlisting}	
+\item 
+\begin{lstlisting}
+SELECT AVG(DISTINCT Salary) 
+FROM Employee, WorksOn
+WHERE SSN IN 
+	(SELECT ESSN 
+	FROM WorksOn 
+	WHERE Hours > 10) 
+\end{lstlisting}
+\end{enumerate}
+
+
+
+\subsection{Normalisation}
+Définissez la notion de \textit{Dépendance fonctionnelle}.\\
+Définissez les trois premières formes normales et donnez trois exemples 
+illustrant ces différentes formes.
+
+

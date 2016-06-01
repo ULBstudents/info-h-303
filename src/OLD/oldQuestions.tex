@@ -66,6 +66,21 @@ et celles annexées à celui-ci.
 Définir l’opération de produit cartésien en algèbre relationnelle. Expliquer le lien entre cette
 opération et la jointure, la jointure naturelle et la jointure externe.
 
+\paragraph{Réponse :} Slides chapitre 6, Relational Algebra\\
+Le produit cartésien associe chaque tuple d'une relation avec 
+tous les tuples d'une autre. \\
+La jointure associe deux relations sur base d'une condition : \\
+La jointure naturelle lie deux relations sur la condition d'égalité de deux 
+attributs (equijoin), et ne retourne qu'un des deux champs :\\
+$T*_{A=B}S$ ne va retourner que A. \\
+$R*S$ va tester l'égalité des attributs qui ont le même nom.\\
+
+La jointure externe, quant à elle, sélectionner les éléments d'une table 
+indépendamment du fait qu'ils soient contenus ou non dans la deuxième table. 
+
+
+
+
 \subsection{question 4}
 Expliquer la séquence intuitive d’exécution (sémantique opérationnelle) d’une requête de type :
 SELECT (...) FROM (...) WHERE (...) GROUP BY (...) HAVING (...)
@@ -135,6 +150,8 @@ généralisation est du type \textit{partiel}.\\
 Quelle contrainte supplémentaire doit-on ajouter lorsque la généralisation est 
 de type \textit{exclusif} ?
 
+%-----------------------------------------------------------------------------------
+%----- Answer ----------------------------------------------------------------------
 \paragraph{réponse incomplète}
 Les trois façons sont : 
 \begin{itemize}
@@ -169,6 +186,14 @@ certaines opérations deviennent plus complexes.
 
 \subsection{Algèbre relationnelle}
 Expliquer comment se passer de l'opération de division en algèbre relationnelle.
+
+\paragraph{slides chapitre 5, fin}
+la division peut être remplacée par la différence et le produit cartésien :
+$R \div S = T$ est équivalent à \\
+$T1 \leftarrow \pi_{A}(R)$\\
+$T2 \leftarrow \pi\_{A}((T1 x S) -R)$\\
+$T \leftarrow T1 - T2 $\\
+
 
 \subsection{SQL}
 Soit les relations Employee(\underline{SSN}, Name, Salary) et WorksOn(\underline{ESSN, PNO}, Hours), 

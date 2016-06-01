@@ -21,14 +21,28 @@
 \noindent
 Rep (prop) :\\ 
 \textbf{Data Model} : Collection de concepts qui peuvent être 
-utilisés pour décrire la structure d'une base de données. Ils peuvent avoir 
+utilisés pour décrire la structure d'une base de données. 
+Fournit des mécanismes (langages) pour définir :
+\begin{itemize}
+	\item la structure
+	\item les opérations pour retrouver/modifier les informations
+	\item des contraintes d'intégrité
+\end{itemize}
+Les data models peuvent avoir 
 des niveaux d'abstraction différents : haut niveau ou conceptuel ressemblent 
 plus à ce que l'on propose aux utilisateurs habituels, 
 bas niveau ou data model physique sont plutôt pour les spécialistes, plus complexes.
 Entre les deux, il y a "representational" (ou implementation data model), qui 
 cache un certain nombre de détails mais qui peut être implémenté directement dans
 un système informatique.\\
-note : heu ??? \\
+Dans le cours, on parle de "relational data model". Il fournit : 
+\begin{itemize}
+	\item Des mécanismes pour définir les domaines et les structures de relations
+	\item plusieurs langages de malipulation (DML)
+	\item mécanismes pour spécifier les contraintes (clé étrangères, ...) et un 
+	langage pour spécifier les contraintes arbitraires
+\end{itemize}
+
 \textbf{Database Schema} : 
 Un schéma décrit l'organisation/structure d'une db. On distingue les données 
 de leur structure. Cette structure est spécifiée par le design de la db.\\
@@ -36,13 +50,14 @@ de leur structure. Cette structure est spécifiée par le design de la db.\\
 des données à un instant t. \\
 \textbf{Internal schema} : 
 Dans une architecture "three-schema architecture" (3 schémas, donc), 
-le niveau "interne" décrit le stockage interne de la db : accès physique aux données, chemins d'accès, ... \\
+le niveau "interne" décrit le stockage interne de la db : accès physique aux données, chemins d'accès. (physique)
+\\
 \textbf{Conceptual schema}
 Décrit la structure pour toute la communauté d'utilisateurs : 
 cache les détails d'accès physiques aux données, et décrit les entités, 
 les types de données, les relations, les opérations permises et les contraintes.
-Un high-level model peut être utilisé à ce niveau.\\
-\textbf{External schema} :
+\\
+\textbf{External schema (logique)} :
 (vue) inclus des schémas externes ou des vues d'utilisateurs. Chaque schéma externe décrit une part de la db auquel un groupe/utilisateur est intéressé et cache le reste de la db.\\
 \textbf{Indépendance des données}
 L'architecture 3-schémas (décrite au dessus) peut être utilisée pour expliquer l'indépendance des données. On peut citer deux différentes sortes d'indépendance :

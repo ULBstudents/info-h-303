@@ -1,15 +1,13 @@
-\section{Questions chapitre 3}
-
-\subsection{Discuss the role of a high-level data model in the database design process}
+\section{Questions chapitre 3 (livre)}
 
 \subsection{Lister les différents cas où l'usage d'une valeur null peut être appropriée}
 \begin{itemize}
 \item L'attribut est optionnel (exemple : on possède ou pas un téléphone, ce n'est pas obligatoire)
-\item L'attribut permet une généralisation (attribut "type")
+\item L'attribut null permet d'enlever une généralisation (attribut "type" + autres optionnels)
 \item ? 
 \end{itemize}
 
-\subsection{Define the following terms :}
+\subsection{Définir les termes suivants :}
 
 \begin{itemize}
 	\item entité
@@ -20,8 +18,11 @@
 	\item attribut multivalué
 	\item attribut dérivé
 	\item attribut complexe
-	\item key attribute
 	\item value set (domain)
+	\item domaine
+	\item relation
+	\item clé
+	\item clé primaire
 \end{itemize}
 
 \noindent
@@ -31,6 +32,7 @@ Rep (prop) :\\
 Un objet important, un concept dans le monde réel (ma voiture rouge...) qui peut être conceptuel (travail), ou physique (voiture, ..) \\
 Une entité est souvent le terme utilisé pour décrire une instance, mais aussi pour \textit{entity type, entity set, entity class}.
 En pratique, dans ce cours, "entité" est similaire à ce qu'on entend par "objet".
+
 
 \textbf{attribut :} Une entité ou une relation a des valeurs pour chaque attribut.
 Celles-ci appartiennent à un set de valeurs, ou à un domaine.\\
@@ -47,19 +49,64 @@ Exemple : un élève qui suit 0..n cours, qui possède 0..n numéros de téléph
 
 \textbf{attribut dérivé :} se déduit d'autres attributs. ex. nombre d'élèves dans une classe, âge d'une personne, statut majeur ou mineur...\\
 \textbf{attribut complexe :} \\
-\textbf{key attribute :} \\
 \textbf{value set (domain) :} détermine l'ensemble des valeurs possibles. 
 Exemple : un numéro de téléphone fixe belge est composé de 9 chiffres\\
 
+\textbf{domaine :} Il donne de précieuses indications sur la structure de l'information. En SQL, en général, cela se limite au type de donnée traditionnel 
+dans les langages de programmation : integer, real, etc. 
+
+\textbf{Relation :}
+
+\textbf{clé :} Lorsqu'un ensemble de clés possèdent la propriété d'identification d'un tuple, une clé est l'unité la plus petite de cet ensemble.
+En général, une relation a plusieurs clés (clés candidates). 
+La définition des clés appartient au schéma.
+\textbf{clé primaire :} Les SGBD demandent souvent qu'une relation possède une clé primaire. Donc si la relation a plusieurs clés, l'une d'elle est 
+privilégiée. 
+
+Ne pas confondre "clé" et "index". Si un attribut est une clé, il n'y a pas forcément d'index. 
+La clé est une notion conceptuelle, l'index est un concept physique utilisé dans le 
+but de l'optimisation.
+
+
 \subsection{Expliquer la différence entre un attribut et un set de valeurs}
+Un attribut est conceptuellement ce que représente une valeur dans une 
+colonne, un set de valeurs est ce que peut prendre cet attribut comme valeurs.
+Exemple : une note peut aller de 0 à 20 (set), et cela correspond à la note (attribut)
 
 \subsection{Qu'est-ce qu'un type de relation ? Expliquer la différence entre une instance de relation, un type de relation}
 Un type de relation est conceptuel. Une instance est une entrée de cette relation dans une table.
 
 \subsection{What is a participation role ? When is it necessary to use role names in the description oh a relationship types ?}
 
-\subsection{Décrire deux alternatives pour spécifier les contraintes structurelles d'un type de relation. Quels sont les avantages et désavantages des deux ?}
 
+\subsection{Décrire deux alternatives pour spécifier les contraintes structurelles d'un type de relation. Quels sont les avantages et désavantages des deux ?}
+Les contraintes peuvent être classifiées : 
+\begin{itemize}
+	\item clés
+	\item dépendances
+	\item intégrité référentielle
+	\item contraintes "ad hoc" (spécifiques du domaine)
+\end{itemize}
+Une contrainte est tout ce qu'on veut exprimer au niveau de la 
+structure de la db qui n'est pas possible d'exprimer 
+à l'aide des mécanismes de description du data-model.
+
+On peut spécifier une contrainte structurelle par une contrainte référentielle : 
+une clé étrangère. Dans ce cas, le lien est symétrique. C'est une contrainte 
+très présente dans les db. Cela signifie que la clé référencée 
+doit exister. 
+
+Des contraintes complexes peuvent exister : les salaires des employés doivent 
+être inférieurs au salaire du supérieur. 
+Dans ce cas, cela peut être spécifié dans l'application elle-même. 
+Le problème est que le développeur doit connaître les contraintes, 
+et que si elles changent, il faut modifier l'application.
+
+Notons qu'il n'y a pas de différence fondamentale  de nature entre la structure de données et des contraintes. Cela dépend du sens que l'on souhaite donner.
+Le même morceau d'information peut être considéré comme un fait ou une contrainte 
+(les joueurs de telle équipe de foot habitent dans telle ville).
+
+??
 \subsection{Under what conditions can an attribute of a binary relationship type be migrated to become an attribute of one of the participating entity types ?}
 
 %\subsection{When we think of relationships as attribute, what are the value sets of these attributes ? What class of data models is based on this concept ?}
@@ -69,7 +116,7 @@ C'est une relation qui porte sur le même type d'entité une fois ou plus.
 Exemple : la supervision des employés. \\
 Un employé peut superviser un employé, qui peut superviser un employé... (attention à la gestion des cycles)\\
 
-\subsection{When is the concept of a weak entity used in data modeling ? Define the terms} :
+\subsection{Quand utilise-t-on le concept de faible entité ? Définir les termes} :
 \begin{itemize}
 	\item owner entity type
 	\item weak entity type

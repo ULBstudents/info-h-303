@@ -4,6 +4,32 @@
 	Une manière de supprimer la généralisation dans un modèle  entité-association (EA) est de 	conserver la super-entité, d'y ajouter les attributs et les relations des sous-entités, d'y ajouter un attribut 'type' et ajouter toutes les contraintes nécessaires.	Donner deux autres manières de supprimer la généralisation dans un modèle EA. Spécifier et justifier pour chaque type de généralisation si chacun des deux cas peut ou non s'appliquer.
 
 
+\paragraph{(tentative de) réponse :}
+Les deux autres façons sont : 
+\begin{itemize}
+	\item Conserver la sous-identité 
+	\item Modéliser avec des relations ordinaires
+\end{itemize}
+(slides chapitre 5 du cours)
+\paragraph{Conserver la sous-identité :} Propage à chaque sous-entité les attributs 
+(et identificateurs) et les relations de la super-entité.\\
+Il y a redondance des attributs et relations. Les applications deviennent plus 
+complexes, et il y a des contraintes inter-relations.
+
+Cette méthode n'est applicable que dans le cas de l'héritage total et exclusif.
+
+\paragraph{Modéliser avec des relations ordinaires :}
+On créé de nouvelles relations. Elles sont mandataires de la sous-entité et 
+optionnelles pour la super-entité.
+Les sous-identités deviennent des entités faibles, la super-entité devient 
+une simple entité.
+Les attributs et anciennes relations sont conservées.\\
+
+On ajoute de la redondance (les nouvelles relations ont la m\^eme signification).
+Les contraintes doivent exprimer le type de généralisation (t, e), 
+certaines opérations deviennent plus complexes.
+
+
 \subsection{question 2}
 	Donner et expliquer les trois manières vues au cours de gérer la suppression en conservant l'intégrité référentielle dans le modèle relationnel. Illustrer à l'aide d'exemples bien choisis chacun des cas.
 

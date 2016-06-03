@@ -67,10 +67,46 @@ si chacun des deux cas peut ou non s'appliquer.
 Donner la syntaxe et le contexte dans lequel la clause HAVING du langage SQL peut être 
 utilisée. Illustrez par un exemple.
 
+%La clause HAVING permet d'effectuer une fonction dans une sous-requête et d'en vérifier le résultat. 
+%Typiquement, HAVING va permettre de vérifier la valeur de COUNT, AVG, ...
+
+
 \subsection{Normalisation}
 Définissez la notion de \textit{dépendance fonctionnelle}. \\
 Définissez les trois premières formes normales et donnez trois exemples 
 illustrant ces différentes formes.
+
+Note : manque exemple
+
+\paragraph{Première forme normale}
+Une relation est en 1NF si : 
+\begin{itemize}
+	\item R respecte la définition du modèle relationnel
+	\item R ne possède pas d'attributs composés ou multivalués.
+\end{itemize}
+Mettre en première forme normale consiste donc à extraire les attributs multivalués pour les mettre dans une autre table.
+
+\paragraph{deuxième forme normale}
+Une relation est en 2NF si : 
+\begin{itemize}
+	\item R est en 1NF
+	\item Il n'y a pas d'attribut ne faisant pas partie d'une clé qui dépend 
+	d'une partie des clés de R seulement.
+\end{itemize}
+En d'autres termes, si une relation R n'a qu'une seule clé et est 1NF, 
+elle est 2NF. S'il y a plusieurs clés, il faut s'assurer que chacun des attributs 
+dépend de toutes ces clés. Dans le cas contraire, on extrait la clé et l'attribut.
+
+
+\paragraph{Troisième forme normale}
+R est une relation en 3NF si : 
+\begin{itemize}
+	\item R est en deuxième forme normale
+	\item Il n'y a pas d'attributs ne faisant pas partie de la clé qui dépendent 
+	transitivement de cette clé
+\end{itemize}
+
+Un attribut non clé ne dépend pas d'un ou plusieurs attributs ne participant pas à la clé (dépendance transitive).
 
 \section{Juin 2015}
 
@@ -121,4 +157,46 @@ Définissez la notion de \textit{Dépendance fonctionnelle}.\\
 Définissez les trois premières formes normales et donnez trois exemples 
 illustrant ces différentes formes.
 
+\paragraph{Tentative de réponse}
+La dépendance fonctionnelle est notion conceptuelle qui permet d'obtenir 
+une découpe logique et efficace, en évitant les redondances. 
+Les redondances provoquent des anomalies lors des opérations d'update, 
+d'insertion, ou de suppression.\\
+La dépendance fonctionnelle définit les liens qui existent entre les attributs :
+\\
+Soit $R(A1, ..., An) avec X, Y \subseteq {A1 ,..., An }.$ \\
+Il y a une dépendance fonctionnelle $X \rightarrowtail Y$ (X détermine Y)
+si \\
+pour chaque paire de tuple t1 , t2 de R,\\
+$t1[X] = t2[X]$ alors $t1[Y] = t2[Y]$.\\
 
+
+\paragraph{Première forme normale}
+Une relation est en 1NF si : 
+\begin{itemize}
+	\item R respecte la définition du modèle relationnel
+	\item R ne possède pas d'attributs composés ou multivalués.
+\end{itemize}
+Mettre en première forme normale consiste donc à extraire les attributs multivalués pour les mettre dans une autre table.
+
+\paragraph{deuxième forme normale}
+Une relation est en 2NF si : 
+\begin{itemize}
+	\item R est en 1NF
+	\item Il n'y a pas d'attribut ne faisant pas partie d'une clé qui dépend 
+	d'une partie des clés de R seulement.
+\end{itemize}
+En d'autres termes, si une relation R n'a qu'une seule clé et est 1NF, 
+elle est 2NF. S'il y a plusieurs clés, il faut s'assurer que chacun des attributs 
+dépend de toutes ces clés. Dans le cas contraire, on extrait la clé et l'attribut.
+
+
+\paragraph{Troisième forme normale}
+R est une relation en 3NF si : 
+\begin{itemize}
+	\item R est en deuxième forme normale
+	\item Il n'y a pas d'attributs ne faisant pas partie de la clé qui dépendent 
+	transitivement de cette clé
+\end{itemize}
+
+Un attribut non clé ne dépend pas d'un ou plusieurs attributs ne participant pas à la clé (dépendance transitive).

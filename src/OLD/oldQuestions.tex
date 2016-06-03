@@ -37,8 +37,13 @@ certaines opérations deviennent plus complexes.
 
 \subsection{question 3}
 	Définir l'opération de division de l'algèbre relationnelle. Donner un équivalent en calcul relationnel tuple.
+	
+	
+	
 \subsection{question 4}
 Donner un exemple bien choisi d’utilisation de la jointure externe (outer join).
+
+
 
 \subsection{question 5}
 Définir troisième forme normale et forme normale de Boyce-Codd.
@@ -49,6 +54,45 @@ Donner un exemple de relation qui est:
 \end{itemize}
 Donner les anomalies de mise à jour pour chacun des deux exemples.
 
+\paragraph{Troisième forme normale (dépendance transitive)}
+Une relation est FN3 si :
+\begin{itemize}
+	\item Elle satisfait FN1 et FN2
+	\item pour toute dépendance fonctionnelle X -> A s'appliquant sur R avec A non inclus dans X, soit X est clé de R, soit A fait partie d'une clé de R.
+\end{itemize}
+Pour rendre la relation FN3, il faut donc éliminer les dépendances fonctionnelles transitives en plaçant certains attributs dans une autre relation.
+
+Exemple : voir slides p.34, ou\\
+Commande(\underline{numéroCommande}, codeClient, client, article) avec les DF\\
+numéroCommande ($\rightarrow$ Commande) codeClient, client, article et\\
+codeClient ($\rightarrow$Commande) client \\
+n'est pas 3NF.\\
+
+Pers(\underline{nom, prénom}, âge, nombreEnfants)\\
+avec la DF\\
+nom, prénom ($\rightarrow$Pers) âge, nombreEnfants\\
+est en 3NF
+
+
+\paragraph{Boyce-Codd}
+Une relation est Boyce-Codd si :
+\begin{itemize}
+	\item satisfait FN1, FN2, FN3
+	\item pour toute dépendance fonctionnelle X -> A s'appliquant sur R avec A non inclus dans X, X est clé (primaire ou candidate) de R.
+\end{itemize}
+( Une relation est en forme normale de Boyce-Codd si et seulement si ses clés candidates sont les uniques sources de DF.)\\
+
+Par exemple : 
+Par exemple, Université(\underline{étudiant, matière}, enseignant, note) avec les DF
+
+étudiant, matière ($\rightarrow$Université) enseignant, note \\
+enseignant ($\rightarrow$)Université) matière\\
+n'est pas en BCNF alors que \\
+
+Pers(\underline{nom, prénom}, âge, nombreEnfants) avec la DF
+
+nom, prénom ($\rightarrow$Pers) âge, nombreEnfants\\
+est en BCNF.\\
 
 \section{Janvier 2009}
 

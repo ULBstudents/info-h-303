@@ -37,8 +37,13 @@ certaines opérations deviennent plus complexes.
 
 \subsection{question 3}
 	Définir l'opération de division de l'algèbre relationnelle. Donner un équivalent en calcul relationnel tuple.
-	
-	
+
+\paragraph{Réponse :}
+Une division $R(A, B) \div S(B)$ est une opération dont le résultat est une relation $(R\div S)(A)$ contenant
+tous les tuples de $\pi_A(R)$ qui apparaissent dans $R$ avec au moins chaque élément de $S$.
+\paragraph{Traduction en calcul relationnel tuple :}
+\[\{r_1.A\;|\;R(r_1)\land\forall s\;(S(s) \rightarrow\exists r_2\;(R(r_2)\land r_2.A=r_1.A\land r_2.B=s.B))\}\]
+
 	
 \subsection{question 4}
 Donner un exemple bien choisi d’utilisation de la jointure externe (outer join).
